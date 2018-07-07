@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New TypeBranch{% endblock %}
+
+{% block body %}
+    <h1>Create new TypeBranch</h1>
+
+    {{ include('type_branch/_form.html.twig') }}
+
+    <a href="{{ path('type_branch_index') }}">back to list</a>
+{% endblock %}

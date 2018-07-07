@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Status index{% endblock %}
+
+{% block body %}
+    <h1>Status index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Icon</th>
+                <th>Color</th>
+                <th>Active</th>
+                <th>Is_end</th>
+                <th>Is_start</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for status in statuses %}
+            <tr>
+                <td>{{ status.id }}</td>
+                <td>{{ status.name }}</td>
+                <td>{{ status.icon }}</td>
+                <td>{{ status.color }}</td>
+                <td>{{ status.active ? 'Yes' : 'No' }}</td>
+                <td>{{ status.isEnd ? 'Yes' : 'No' }}</td>
+                <td>{{ status.isStart ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('status_show', {'id': status.id}) }}">show</a>
+                    <a href="{{ path('status_edit', {'id': status.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('status_new') }}">Create new</a>
+{% endblock %}

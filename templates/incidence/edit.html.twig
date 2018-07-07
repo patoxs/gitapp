@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Incidence{% endblock %}
+
+{% block body %}
+    <h1>Edit Incidence</h1>
+
+    {{ include('incidence/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('incidence_index') }}">back to list</a>
+
+    {{ include('incidence/_delete_form.html.twig') }}
+{% endblock %}

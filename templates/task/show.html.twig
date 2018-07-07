@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Task{% endblock %}
+
+{% block body %}
+    <h1>Task</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ task.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ task.title }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ task.description }}</td>
+            </tr>
+            <tr>
+                <th>Date_create</th>
+                <td>{{ task.dateCreate ? task.dateCreate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Date_start</th>
+                <td>{{ task.dateStart ? task.dateStart|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Date_end</th>
+                <td>{{ task.dateEnd ? task.dateEnd|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Estimated_hours</th>
+                <td>{{ task.estimatedHours }}</td>
+            </tr>
+            <tr>
+                <th>Email_notify_user</th>
+                <td>{{ task.emailNotifyUser ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Email_notify_team</th>
+                <td>{{ task.emailNotifyTeam ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Icon</th>
+                <td>{{ task.icon }}</td>
+            </tr>
+            <tr>
+                <th>Color</th>
+                <td>{{ task.color }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('task_index') }}">back to list</a>
+
+    <a href="{{ path('task_edit', {'id': task.id}) }}">edit</a>
+
+    {{ include('task/_delete_form.html.twig') }}
+{% endblock %}

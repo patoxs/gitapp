@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TypeBranch index{% endblock %}
+
+{% block body %}
+    <h1>TypeBranch index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Type_branch</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for type_branch in type_branches %}
+            <tr>
+                <td>{{ type_branch.id }}</td>
+                <td>{{ type_branch.typeBranch }}</td>
+                <td>
+                    <a href="{{ path('type_branch_show', {'id': type_branch.id}) }}">show</a>
+                    <a href="{{ path('type_branch_edit', {'id': type_branch.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('type_branch_new') }}">Create new</a>
+{% endblock %}

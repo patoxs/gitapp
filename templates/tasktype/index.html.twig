@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tasktype index{% endblock %}
+
+{% block body %}
+    <h1>Tasktype index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Icon</th>
+                <th>Color</th>
+                <th>Active</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tasktype in tasktypes %}
+            <tr>
+                <td>{{ tasktype.id }}</td>
+                <td>{{ tasktype.name }}</td>
+                <td>{{ tasktype.icon }}</td>
+                <td>{{ tasktype.color }}</td>
+                <td>{{ tasktype.active ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('tasktype_show', {'id': tasktype.id}) }}">show</a>
+                    <a href="{{ path('tasktype_edit', {'id': tasktype.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('tasktype_new') }}">Create new</a>
+{% endblock %}

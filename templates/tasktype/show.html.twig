@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tasktype{% endblock %}
+
+{% block body %}
+    <h1>Tasktype</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ tasktype.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ tasktype.name }}</td>
+            </tr>
+            <tr>
+                <th>Icon</th>
+                <td>{{ tasktype.icon }}</td>
+            </tr>
+            <tr>
+                <th>Color</th>
+                <td>{{ tasktype.color }}</td>
+            </tr>
+            <tr>
+                <th>Active</th>
+                <td>{{ tasktype.active ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('tasktype_index') }}">back to list</a>
+
+    <a href="{{ path('tasktype_edit', {'id': tasktype.id}) }}">edit</a>
+
+    {{ include('tasktype/_delete_form.html.twig') }}
+{% endblock %}

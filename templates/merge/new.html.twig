@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Merge{% endblock %}
+
+{% block body %}
+    <h1>Create new Merge</h1>
+
+    {{ include('merge/_form.html.twig') }}
+
+    <a href="{{ path('merge_index') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Merge{% endblock %}
+
+{% block body %}
+    <h1>Edit Merge</h1>
+
+    {{ include('merge/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('merge_index') }}">back to list</a>
+
+    {{ include('merge/_delete_form.html.twig') }}
+{% endblock %}

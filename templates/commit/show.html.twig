@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Commit{% endblock %}
+
+{% block body %}
+    <h1>Commit</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ commit.id }}</td>
+            </tr>
+            <tr>
+                <th>Commit_hash</th>
+                <td>{{ commit.commitHash }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ commit.date ? commit.date|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Commit</th>
+                <td>{{ commit.commit }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('commit_index') }}">back to list</a>
+
+    <a href="{{ path('commit_edit', {'id': commit.id}) }}">edit</a>
+
+    {{ include('commit/_delete_form.html.twig') }}
+{% endblock %}
